@@ -1,2 +1,2 @@
 # flixnet
-Front end repo for Flixnet Movie Picker
+Frontend & backend repo for Flixnet Movie Picker
