@@ -1,0 +1,201 @@
+@use "./partials/reset" as *;
+@use "./partials/global" as *;
+@use "./partials/mixins" as *;
+/* 
+* Always set the map height explicitly to define the size of the div element
+* that contains the map. 
+*/
+#map {
+  height: 100%;
+}
+
+.intro__button,
+.family__button,
+.time__submit {
+  @include custom-button();
+}
+
+// Sections
+.divider {
+  display: flex;
+  justify-content: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+  margin-top: 1rem;
+  &__item {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  &__logo {
+    display: flex;
+    align-items: center;
+    &-name {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    &-icon {
+      padding-left: 0.5rem;
+      height: 4rem;
+    }
+  }
+}
+
+.intro {
+  width: 80vw;
+  // background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+  @include fade-in;
+  &__header {
+  }
+  &__img {
+    height: 50vh;
+    padding: 3rem 0;
+  }
+  &__button {
+  }
+}
+
+.family {
+  width: 80vw;
+  // background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+  // display: none;
+  &__header {
+  }
+  &__img {
+  }
+  &__buttons {
+    &--yes {
+    }
+    &--no {
+    }
+  }
+}
+
+.time {
+  width: 80vw;
+  // background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+  // display: none;
+
+  &__container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding-bottom: 1rem;
+  }
+  &__hours-input,
+  &__minutes-input {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px 0;
+  }
+  &__hours-label,
+  &__minutes-label {
+    font-weight: 600;
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding-bottom: 2rem;
+  }
+  &__submit {
+  }
+}
+
+.mood {
+  width: 80vw;
+  // background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+  // display: none;
+  &__option {
+    font-size: 3rem;
+  }
+}
+
+.form__submit {
+  // display: none;
+  @include custom-button;
+}
+
+.loading-container {
+  // display: none;
+  // height: 1000px;
+  padding-top: 7rem;
+}
+
+// Show/Hide classes
+
+.disappear {
+  display: none;
+  @include fade-out;
+}
+.display-none {
+  display: none;
+}
+.appear {
+  // display: flex;
+  @include fade-in;
+}
+
+// Movie results
+
+.movies__container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  // background-color: lightblue;
+  width: 30%;
+  padding: 1rem;
+  &__image {
+    padding-bottom: 1rem;
+    height: 9rem;
+    object-fit: cover;
+    filter: drop-shadow(5px 5px 2px black);
+  }
+  &__title {
+    filter: drop-shadow(5px 5px 8px black);
+    font-size: 14px;
+  }
+  &__year {
+    filter: drop-shadow(5px 5px 8px black);
+    font-size: 12px;
+  }
+
+  &__score {
+    filter: drop-shadow(5px 5px 8px black);
+    font-size: 12px;
+  }
+}

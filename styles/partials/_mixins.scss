@@ -1,0 +1,43 @@
+@mixin custom-button() {
+  color: #ff6663;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border-color: #ff6663;
+}
+
+@mixin fade-in {
+  animation: fadeIn 0.75s ease-in-out;
+}
+
+@mixin fade-out {
+  animation: fadeOut 0.1s ease-in-out;
+  animation-fill-mode: forwards;
+  // display: none;
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translate(0, 50%);
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 100%;
+  }
+
+  100% {
+    // transform: translate(0, -50%);
+    // opacity: 0;
+    // display: none;
+    transform: translate(0, -50%);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,256 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  height: 10vh;
+}
+.header__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  background-color: #ff6663;
+  color: white;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  padding: 3rem 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translate(0, 50%);
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    transform: translate(0, -50%);
+    opacity: 0;
+  }
+}
+/* 
+* Always set the map height explicitly to define the size of the div element
+* that contains the map. 
+*/
+#map {
+  height: 100%;
+}
+
+.intro__button,
+.family__button,
+.time__submit {
+  color: #ff6663;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border-color: #ff6663;
+}
+
+.divider {
+  display: flex;
+  justify-content: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+  margin-top: 1rem;
+}
+.nav__item {
+  font-size: 18px;
+  font-weight: 600;
+}
+.nav__logo {
+  display: flex;
+  align-items: center;
+}
+.nav__logo-name {
+  font-size: 24px;
+  font-weight: 600;
+}
+.nav__logo-icon {
+  padding-left: 0.5rem;
+  height: 4rem;
+}
+
+.intro {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+  animation: fadeIn 0.75s ease-in-out;
+}
+.intro__img {
+  height: 50vh;
+  padding: 3rem 0;
+}
+.family {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+}
+.time {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+}
+.time__container {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  padding-bottom: 1rem;
+}
+.time__hours-input, .time__minutes-input {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  margin: 5px 0;
+}
+.time__hours-label, .time__minutes-label {
+  font-weight: 600;
+}
+.time__box {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  padding-bottom: 2rem;
+}
+.mood {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+}
+.mood__option {
+  font-size: 3rem;
+}
+
+.form__submit {
+  color: #ff6663;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border-color: #ff6663;
+}
+
+.loading-container {
+  padding-top: 7rem;
+}
+
+.disappear {
+  display: none;
+  animation: fadeOut 0.1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.display-none {
+  display: none;
+}
+
+.appear {
+  animation: fadeIn 0.75s ease-in-out;
+}
+
+.movies__container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  padding: 1rem;
+}
+.movie-card__image {
+  padding-bottom: 1rem;
+  height: 9rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  filter: drop-shadow(5px 5px 2px black);
+}
+.movie-card__title {
+  filter: drop-shadow(5px 5px 8px black);
+  font-size: 14px;
+}
+.movie-card__year {
+  filter: drop-shadow(5px 5px 8px black);
+  font-size: 12px;
+}
+.movie-card__score {
+  filter: drop-shadow(5px 5px 8px black);
+  font-size: 12px;
+}/*# sourceMappingURL=style.css.map */
