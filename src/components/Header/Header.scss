@@ -1,0 +1,36 @@
+@use '../../styles/partials/globals';
+
+.header {
+  display: flex;
+  justify-content: center;
+  height: 10vh;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+  margin-top: 1rem;
+  &__item {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  &__logo {
+    display: flex;
+    align-items: center;
+    &-name {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    &-icon {
+      padding-left: 0.5rem;
+      height: 4rem;
+    }
+  }
+}
