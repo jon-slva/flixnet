@@ -1,0 +1,26 @@
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/mixins' as *;
+
+.intro {
+  // width: 80vw;
+  // background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+  @include fade-in;
+  &__header {
+  }
+  &__img {
+    height: 50vh;
+    padding: 3rem 0;
+  }
+  &__button {
+    @include custom-button;
+  }
+  &__disappear {
+    // display: none;
+    @include fade-out;
+  }
+}
