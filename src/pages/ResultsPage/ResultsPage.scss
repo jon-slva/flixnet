@@ -1,0 +1,15 @@
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/mixins' as *;
+
+.results {
+  margin-top: 3rem;
+  &__title {
+  }
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+}
