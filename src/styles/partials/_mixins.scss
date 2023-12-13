@@ -6,6 +6,7 @@
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   border-color: #ff6663;
+  cursor: pointer;
 }
 
 @mixin fade-in {
@@ -15,7 +16,7 @@
 @mixin fade-out {
   animation: fadeOut 0.1s ease-in-out;
   animation-fill-mode: forwards;
-  // display: none;
+  display: none;
 }
 
 @keyframes fadeIn {

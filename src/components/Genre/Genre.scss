@@ -1,0 +1,24 @@
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/mixins' as *;
+
+.mood {
+  // width: 80vw;
+  // background-color: lightblue;
+  display: none;
+  &__show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include fade-in;
+  }
+
+  // height: 85vh;
+  // display: none;
+  &__option {
+    font-size: 3rem;
+  }
+  &__dissapear {
+    @include fade-out;
+  }
+}

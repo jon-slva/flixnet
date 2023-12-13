@@ -1,0 +1,8 @@
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/mixins' as *;
+
+.form {
+  &__button {
+    @include custom-button();
+  }
+}
