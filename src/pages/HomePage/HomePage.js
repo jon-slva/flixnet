@@ -11,7 +11,7 @@ export default function HomePage() {
     setDisappear(true);
     setTimeout(() => {
       navigate('/form');
-    }, 700);
+    }, 500);
   };
 
   return (
