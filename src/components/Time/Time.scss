@@ -1,0 +1,38 @@
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/mixins' as *;
+
+.time {
+  display: none;
+  &__show {
+    @include fade-in;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding-bottom: 1rem;
+  }
+  &__hours-input,
+  &__minutes-input {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px 0;
+  }
+  &__hours-label,
+  &__minutes-label {
+    font-weight: 600;
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding-bottom: 2rem;
+  }
+}

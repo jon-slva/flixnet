@@ -1,0 +1,28 @@
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/mixins' as *;
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  padding: 1rem;
+  &__image {
+    padding-bottom: 1rem;
+    height: 9rem;
+    object-fit: cover;
+    filter: drop-shadow(5px 5px 2px black);
+  }
+  &__title {
+    filter: drop-shadow(5px 5px 8px black);
+    font-size: 14px;
+  }
+  &__year {
+    filter: drop-shadow(5px 5px 8px black);
+    font-size: 12px;
+  }
+
+  &__score {
+    filter: drop-shadow(5px 5px 8px black);
+    font-size: 12px;
+  }
+}
