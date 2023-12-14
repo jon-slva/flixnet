@@ -24,6 +24,7 @@
     transform: translate(0, 50%);
     opacity: 0;
   }
+
   100% {
     opacity: 100%;
   }
@@ -41,4 +42,38 @@
     transform: translate(0, -50%);
     opacity: 0;
   }
+}
+
+
+//Montserrat
+@mixin font-montserrat-reg {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: normal;
+}
+
+@mixin font-montserrat-bold {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: bold;
+}
+
+@mixin font-montserrat-light {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: lighter;
+}
+
+
+// Fira Sans
+@mixin font-firasans-reg {
+  font-family: 'Fira Sans', Arial, sans-serif;
+  font-weight: normal;
+}
+
+@mixin font-firasans-bold {
+  font-family: 'Fira Sans', Arial, sans-serif;
+  font-weight: bold;
+}
+
+@mixin font-firasans-light {
+  font-family: 'Fira Sans', Arial, sans-serif;
+  font-weight: lighter;
 }
