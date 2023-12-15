@@ -1,15 +1,53 @@
 @import './variables';
-// @import './mixins';
+
+//Montserrat
+
+@mixin font-montserrat-reg {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: normal;
+  // font-display: swap;
+}
+
+@mixin font-montserrat-bold {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: bold;
+  // font-display: swap;
+}
+
+@mixin font-montserrat-light {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: lighter;
+  // font-display: swap;
+}
+
+
+// Fira Sans
+@mixin font-firasans-reg {
+  font-family: 'Fira Sans', Arial, sans-serif;
+  font-weight: normal;
+  // font-display: swap;
+}
+
+@mixin font-firasans-bold {
+  font-family: 'Fira Sans', Arial, sans-serif;
+  font-weight: bold;
+  // font-display: swap;
+}
+
+@mixin font-firasans-light {
+  font-family: 'Fira Sans', Arial, sans-serif;
+  font-weight: lighter;
+  // font-display: swap;
+}
 
 @mixin custom-button() {
-  // @include font-firasans-bold;
   @include font-montserrat-bold;
   color: #ff6663;
   font-size: 1.2rem;
   // font-weight: 600;
   background-color: white;
   padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
+  border-radius: 8px;
   border-color: #ff6663;
   cursor: pointer;
 }
@@ -47,38 +85,4 @@
     transform: translate(0, -50%);
     opacity: 0;
   }
-}
-
-
-//Montserrat
-@mixin font-montserrat-reg {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-weight: normal;
-}
-
-@mixin font-montserrat-bold {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-weight: bold;
-}
-
-@mixin font-montserrat-light {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-weight: lighter;
-}
-
-
-// Fira Sans
-@mixin font-firasans-reg {
-  font-family: 'Fira Sans', Arial, sans-serif;
-  font-weight: normal;
-}
-
-@mixin font-firasans-bold {
-  font-family: 'Fira Sans', Arial, sans-serif;
-  font-weight: bold;
-}
-
-@mixin font-firasans-light {
-  font-family: 'Fira Sans', Arial, sans-serif;
-  font-weight: lighter;
 }

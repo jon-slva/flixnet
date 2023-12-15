@@ -4,12 +4,8 @@
 .header {
   display: flex;
   justify-content: center;
-  height: 10vh;
-
-  &__container {
-    display: flex;
-    justify-content: space-between;
-  }
+  position: absolute;
+  width: 100%;
 }
 
 .nav {

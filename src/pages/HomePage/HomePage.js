@@ -15,12 +15,14 @@ export default function HomePage() {
   };
 
   return (
-    <div className={`intro ${disappear ? 'intro__disappear' : ''}`}>
-      <h1 className='intro__header'>Hello!</h1>
-      <img className='intro__img' src={popcornIcon} alt='popcorn bucket' />
-      <button type='click' className='intro__button' onClick={handleClick}>
-        Get Started
-      </button>
-    </div>
+    <main className='main'>
+      <div className={`intro ${disappear ? 'intro__disappear' : ''}`}>
+        <h1 className='intro__header'>Hello!</h1>
+        <img className='intro__img' src={popcornIcon} alt='popcorn bucket' />
+        <button type='click' className='intro__button' onClick={handleClick}>
+          Get Started
+        </button>
+      </div>
+    </main>
   );
 }

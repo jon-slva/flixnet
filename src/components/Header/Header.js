@@ -3,7 +3,7 @@ import './Header.scss';
 
 export default function Header() {
   return (
-    <section className='header'>
+    <header className='header'>
       <nav className='nav'>
         <div className='nav__logo'>
           <a href='/'>
@@ -17,6 +17,6 @@ export default function Header() {
           <p className='nav__start-over'>Start over</p>
         </a>
       </nav>
-    </section>
+    </header>
   );
 }
