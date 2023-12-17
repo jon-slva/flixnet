@@ -1,6 +1,6 @@
 import './Time.scss';
 
-export default function Time({ hide, time, setTime, handleTimeClick }) {
+export default function Time({ genre, time, setTime, handleTimeClick }) {
   const handleInputChange = (e) => {
     // console.log(time);
     const { name, value } = e.target;
@@ -10,7 +10,7 @@ export default function Time({ hide, time, setTime, handleTimeClick }) {
     });
   };
   return (
-    <div className={`time ${hide ? 'time__show' : ''}`}>
+    <div className={`time ${genre > 0 ? 'time__show' : ''}`}>
       <h2 className='time__header'>How much time do you have?</h2>
       <div className='time__container'>
         <input

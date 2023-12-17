@@ -1,10 +1,10 @@
 import './Genre.scss';
 
-export default function Genre({ hide, handleGenreClick, genre }) {
+export default function Genre({ rating, handleGenreClick, genre }) {
   return (
     <div
-      className={`mood ${hide.length > 0 ? 'mood__show' : ''} ${
-        genre.length === 0 ? '' : 'mood__dissapear'
+      className={`mood ${rating.length > 0 ? 'mood__show' : ''} ${
+        genre === 0 ? '' : 'mood__dissapear'
       }`}
     >
       <h2>What mood are you in?</h2>

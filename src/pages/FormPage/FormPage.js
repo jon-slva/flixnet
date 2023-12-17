@@ -1,99 +1,75 @@
 import FamilyFriendly from '../../components/FamilyFriendly/FamilyFriendly';
 import Genre from '../../components/Genre/Genre';
 import Time from '../../components/Time/Time';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import './FormPage.scss';
 
-const childrenContentRating = ['G', 'PG', 'PG-13'];
-const adultContentRating = ['R', 'NC-17'];
+const genreDictionary = [
+  { id: 28, name: 'Action' },
+  { id: 12, name: 'Adventure' },
+  { id: 16, name: 'Animation' },
+  { id: 35, name: 'Comedy' },
+  { id: 80, name: 'Crime' },
+  { id: 99, name: 'Documentary' },
+  { id: 18, name: 'Drama' },
+  { id: 10751, name: 'Family' },
+  { id: 36, name: 'History' },
+  { id: 27, name: 'Horror' },
+  { id: 10402, name: 'Music' },
+  { id: 9648, name: 'Mystery' },
+  { id: 10749, name: 'Romance' },
+  { id: 878, name: 'Science Fiction' },
+  { id: 53, name: 'Thriller' },
+  { id: 10752, name: 'War' },
+  { id: 37, name: 'Western' },
+];
 
 export default function FormPage() {
-  const [rating, setRating] = useState([]);
-  const [genre, setGenre] = useState('');
+  const [rating, setRating] = useState('');
+  const [genre, setGenre] = useState(0);
   const [time, setTime] = useState({
     hours: '',
     minutes: '',
   });
-  const [movies, setMovies] = useState([]);
-  const apiKey = 'fb91b136dcmsh82a8f4a5d7c7771p197ee4jsn8bbb9ef510bd';
-  const apiBody = 'https://moviesminidatabase.p.rapidapi.com/movie';
 
   const navigate = useNavigate();
 
   const handleRatingClick = (e) => {
     e.preventDefault();
-    // setRating(e.target.value);
-    if (e.target.value === 'yes') {
-      setRating(childrenContentRating);
-    } else {
-      setRating(adultContentRating);
-    }
+    setRating(e.target.value);
   };
 
   const handleGenreClick = (e) => {
     e.preventDefault();
-    setGenre(e.target.getAttribute('value'));
+    let genreObject = genreDictionary.find(
+      (genre) => genre.name === e.target.getAttribute('value')
+    );
+    setGenre(genreObject.id);
   };
 
   const handleTimeClick = (e) => {
     e.preventDefault();
-    if (movies.length > 0) {
-      navigate('/results', {
-        state: {
-          rating: rating,
-          genre: genre,
-          time: Number(time.hours * 60) + Number(time.minutes),
-          movies: movies,
-        },
-      });
-    }
-  };
-
-  const getById = async (id) => {
-    let res = await axios.get(`${apiBody}/id/${id}/`, {
-      headers: {
-        'X-RapidAPI-Key': apiKey,
-        'X-RapidAPI-Host': 'moviesminidatabase.p.rapidapi.com',
+    navigate('/results', {
+      state: {
+        rating: rating,
+        genre: genre,
+        time: Number(time.hours * 60) + Number(time.minutes),
       },
     });
-    if (rating.includes(res.data.results.content_rating)) {
-      setMovies((movies) => [...movies, res.data.results]);
-    }
+    // }
   };
-
-  useEffect(() => {
-    const getByGenre = async () => {
-      try {
-        let response = await axios.get(`${apiBody}/byGen/${genre}/`, {
-          headers: {
-            'X-RapidAPI-Key': apiKey,
-            'X-RapidAPI-Host': 'moviesminidatabase.p.rapidapi.com',
-          },
-        });
-        for (let i = 0; i < response.data.results.length; i++) {
-          try {
-            getById(response.data.results[i].imdb_id);
-          } catch (error) {
-            console.log(error);
-          }
-        }
-      } catch (error) {
-        throw error;
-      }
-    };
-    if (genre.length > 0) {
-      getByGenre();
-    }
-  }, [genre]);
 
   return (
     <form className='form'>
       <FamilyFriendly handleRatingClick={handleRatingClick} rating={rating} />
-      <Genre hide={rating} genre={genre} handleGenreClick={handleGenreClick} />
+      <Genre
+        rating={rating}
+        genre={genre}
+        handleGenreClick={handleGenreClick}
+      />
       <Time
-        hide={genre}
+        genre={genre}
         time={time}
         handleTimeClick={handleTimeClick}
         setTime={setTime}
