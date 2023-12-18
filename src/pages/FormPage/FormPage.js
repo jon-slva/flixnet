@@ -26,8 +26,9 @@ const genreDictionary = [
 ];
 
 export default function FormPage() {
-  const [rating, setRating] = useState('');
-  const [genre, setGenre] = useState(0);
+  const [disappear, setDisappear] = useState(false);
+  const [rating, setRating] = useState([]);
+  const [genre, setGenre] = useState('');
   const [time, setTime] = useState({
     hours: '',
     minutes: '',
@@ -61,19 +62,21 @@ export default function FormPage() {
   };
 
   return (
-    <form className='form'>
-      <FamilyFriendly handleRatingClick={handleRatingClick} rating={rating} />
-      <Genre
-        rating={rating}
-        genre={genre}
-        handleGenreClick={handleGenreClick}
-      />
-      <Time
-        genre={genre}
-        time={time}
-        handleTimeClick={handleTimeClick}
-        setTime={setTime}
-      />
-    </form>
+    <main className='main-form'>
+      <form className='form'>
+        <FamilyFriendly handleRatingClick={handleRatingClick} rating={rating} />
+        <Genre
+          ratingState={rating}
+          genreState={genre}
+          handleGenreClick={handleGenreClick}
+        />
+        <Time
+          genreState={genre}
+          timeState={time}
+          handleTimeClick={handleTimeClick}
+          setTime={setTime}
+        />
+      </form>
+    </main>
   );
 }

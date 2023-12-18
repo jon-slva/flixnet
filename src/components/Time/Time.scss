@@ -2,13 +2,21 @@
 @use '../../styles/partials/mixins' as *;
 
 .time {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   display: none;
-  &__show {
-    @include fade-in;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  width: 70%;
+
+  &__header {
+    @include font-montserrat-bold;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
+    text-align: center;
   }
 
   &__container {
@@ -17,16 +25,21 @@
     align-items: flex-start;
     padding-bottom: 1rem;
   }
+
   &__hours-input,
   &__minutes-input {
     padding: 10px;
     border: none;
     border-radius: 10px;
     margin: 5px 0;
+    box-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
+    @include font-montserrat-reg;
   }
+
   &__hours-label,
   &__minutes-label {
-    font-weight: 600;
+    @include font-montserrat-bold;
+    text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
   }
 
   &__box {
@@ -35,4 +48,12 @@
     align-items: flex-start;
     padding-bottom: 2rem;
   }
+}
+
+.show-component {
+  @include fade-in-abs;
+}
+
+.hide-component {
+  @include fade-out-abs;
 }
