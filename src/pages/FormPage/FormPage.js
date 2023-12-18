@@ -10,6 +10,7 @@ const childrenContentRating = ['G', 'PG', 'PG-13'];
 const adultContentRating = ['R', 'NC-17'];
 
 export default function FormPage() {
+  const [disappear, setDisappear] = useState(false);
   const [rating, setRating] = useState([]);
   const [genre, setGenre] = useState('');
   const [time, setTime] = useState({
@@ -89,15 +90,17 @@ export default function FormPage() {
   }, [genre]);
 
   return (
-    <form className='form'>
-      <FamilyFriendly handleRatingClick={handleRatingClick} rating={rating} />
-      <Genre hide={rating} genre={genre} handleGenreClick={handleGenreClick} />
-      <Time
-        hide={genre}
-        time={time}
-        handleTimeClick={handleTimeClick}
-        setTime={setTime}
-      />
-    </form>
+    <main className='main-form'>
+      <form className='form'>
+        <FamilyFriendly handleRatingClick={handleRatingClick} rating={rating} />
+        <Genre ratingState={rating} genreState={genre} handleGenreClick={handleGenreClick} />
+        <Time
+          genreState={genre}
+          timeState={time}
+          handleTimeClick={handleTimeClick}
+          setTime={setTime}
+        />
+      </form>
+    </main>
   );
 }

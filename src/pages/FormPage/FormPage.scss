@@ -1,8 +1,27 @@
 @use '../../styles/partials/globals' as *;
 @use '../../styles/partials/mixins' as *;
 
+.main-form {
+  height: 100%;
+  position: relative;
+  // overflow: hidden;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
+}
+
 .form {
   &__button {
     @include custom-button();
   }
+}
+
+.show-component {
+  display: flex;
+  @include fade-in-abs;
+}
+
+.hide-component {
+  @include fade-out-abs;
 }

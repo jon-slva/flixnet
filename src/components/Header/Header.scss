@@ -1,38 +1,45 @@
-@use '../../styles/partials/globals';
+@import '../../styles/partials/globals';
+@import '../../styles/partials/mixins';
 
 .header {
   display: flex;
   justify-content: center;
-  height: 10vh;
-  &__container {
-    display: flex;
-    justify-content: space-between;
-  }
+  position: absolute;
+  width: 100%;
+  z-index: 3;
 }
 
 .nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 2rem 0;
+  padding: 0 16px;
+  margin: 16px 0;
   width: 100%;
-  margin-top: 1rem;
-  &__item {
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-  }
+
   &__logo {
     display: flex;
     align-items: center;
     cursor: pointer;
-    &-name {
-      font-size: 24px;
-      font-weight: 600;
+
+    &--name {
+      @include font-firasans-bold;
+      // @include font-montserrat-bold;
+      font-size: 32px;
+      text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
     }
-    &-icon {
-      padding-left: 0.5rem;
+
+    &--icon {
+      transform: translateY(-6px);
       height: 4rem;
+      filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.2));
     }
+  }
+
+  &__start-over {
+    @include font-firasans-bold;
+    // @include font-montserrat-bold;
+    font-size: 18px;
+    text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
   }
 }

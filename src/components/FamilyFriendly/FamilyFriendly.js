@@ -2,7 +2,7 @@ import './FamilyFriendly.scss';
 
 export default function FamilyFriendly({ handleRatingClick, rating }) {
   return (
-    <div className={`rating ${rating.length === 0 ? 'rating__show' : ''}`}>
+    <div className={`rating ${rating.length === 0 ? '' : 'hide-component'}`}>
       <h2 className='rating__header'>Family friendly?</h2>
       <div className='rating__buttons'>
         <button

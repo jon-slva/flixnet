@@ -2,23 +2,27 @@
 @use '../../styles/partials/mixins' as *;
 
 .mood {
-  // width: 80vw;
-  // background-color: lightblue;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  // transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
   display: none;
-  &__show {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    @include fade-in;
+
+  &__header {
+    @include font-montserrat-bold;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
+    text-align: center;
   }
 
-  // height: 85vh;
-  // display: none;
   &__option {
+    text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
     font-size: 3rem;
-  }
-  &__dissapear {
-    @include fade-out;
   }
 }
