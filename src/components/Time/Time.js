@@ -1,6 +1,11 @@
 import './Time.scss';
 
-export default function Time({ genreState, timeState, setTime, handleTimeClick }) {
+export default function Time({
+  genreState,
+  timeState,
+  setTime,
+  handleTimeClick,
+}) {
   const handleInputChange = (e) => {
     // console.log(time);
     const { name, value } = e.target;
