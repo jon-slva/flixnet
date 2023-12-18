@@ -6,13 +6,15 @@
   justify-content: center;
   position: absolute;
   width: 100%;
+  z-index: 3;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 16px;
+  padding: 0 16px;
+  margin: 16px 0;
   width: 100%;
 
   &__logo {

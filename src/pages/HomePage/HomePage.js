@@ -16,7 +16,7 @@ export default function HomePage() {
 
   return (
     <main className='main'>
-      <div className={`intro ${disappear ? 'intro__disappear' : ''}`}>
+      <div className={`intro ${disappear ? 'disappear' : 'appear'}`}>
         <h1 className='intro__header'>Hello!</h1>
         <img className='intro__img' src={popcornIcon} alt='popcorn bucket' />
         <button type='click' className='intro__button' onClick={handleClick}>

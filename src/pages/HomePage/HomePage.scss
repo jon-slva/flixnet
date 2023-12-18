@@ -3,6 +3,7 @@
 
 .main {
   height: 100%;
+  position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -11,11 +12,14 @@
 }
 
 .intro {
+  // position: absolute;
+  // left: 50%;
+  // top: 50%;
+  // transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  @include fade-in;
 
   &__header {
     @include font-montserrat-bold;
@@ -25,34 +29,22 @@
   }
 
   &__img {
-    height: 50vh;
+    height: 31.25rem;
     padding: 3rem 0;
+    object-fit: contain
   }
 
   &__button {
     @include custom-button;
     margin: 0 auto;
-    box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.2);
-
-    &:hover {
-      background-color: $silver;
-      // color: white;
-      // border-color: #d45452;
-      transform: translate(-1px, -1px);
-      box-shadow: 4px 5px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    &:active {
-      background-color: #ff6663;
-      color: white;
-      border-color: #ff6663;
-      transform: translate(2px, 2px);
-      box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.2);
-    }
   }
 
-  &__disappear {
-    // display: none;
-    @include fade-out;
-  }
+}
+
+.appear {
+  @include fade-in;
+}
+
+.disappear {
+  @include fade-out;
 }

@@ -50,39 +50,96 @@
   border-radius: 8px;
   border-color: #ff6663;
   cursor: pointer;
+  box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    // background-color: $silver;
+    // color: white;
+    // border-color: #d45452;
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 5px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    background-color: #ff6663;
+    color: white;
+    border-color: #ff6663;
+    transform: translate(2px, 2px);
+    box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.2);
+  }
 }
 
+
+// ANIMATIONS
+
+// Normal Animations
 @mixin fade-in {
   animation: fadeIn 0.75s ease-in-out;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 @mixin fade-out {
-  animation: fadeOut 0.1s ease-in-out;
-  animation-fill-mode: forwards;
-  display: none;
+  animation: fadeOut 0.75s ease-in-out forwards;
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    // 99% {
+    //   opacity: 0;
+    // }
+
+    100% {
+      transform: translateY(-30px);
+      opacity: 0;
+      display: none;
+    }
+  }
 }
 
-@keyframes fadeIn {
+// Position Absolute Animations
+@mixin fade-in-abs {
+  animation: fadeInAbs 0.75s ease-in-out forwards;
+}
+
+@mixin fade-out-abs {
+  animation: fadeOutAbs 0.75s ease-in-out forwards;
+}
+
+@keyframes fadeInAbs {
   0% {
-    transform: translate(0, 50%);
     opacity: 0;
+    transform: translate(-50%, 0%);
   }
 
   100% {
-    opacity: 100%;
+    opacity: 1;
+    transform: translate(-50%, -50%);
   }
 }
 
-@keyframes fadeOut {
+@keyframes fadeOutAbs {
   0% {
-    opacity: 100%;
+    opacity: 1;
+    transform: translate(-50%, -50%);
   }
 
   100% {
-    // transform: translate(0, -50%);
-    // opacity: 0;
-    // display: none;
-    transform: translate(0, -50%);
     opacity: 0;
+    transform: translate(-50%, -100%);
+    display: none;
   }
 }
