@@ -3,12 +3,8 @@
 
 .main-form {
   height: 100%;
+  flex-grow: 1;
   position: relative;
-  // overflow: hidden;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // justify-content: center;
 }
 
 .form {
