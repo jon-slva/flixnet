@@ -102,11 +102,11 @@ export default function ResultsPage() {
     getByGenre();
   }, [genre, rating, time]);
 
-  if (results.length === 0) return <h1>Loading...</h1>;
+  if (results.length === 0) return <h1 className='loading'>Loading...</h1>;
 
   return (
     <div className='results'>
-      <h1 className='results__title'>Pick a Movie!</h1>
+      <h1 className='results__header'>Pick a Movie!</h1>
       <div className='results__container'>
         {results.map((movie, i) => {
           return <MovieCard key={i} movie={movie} />;
