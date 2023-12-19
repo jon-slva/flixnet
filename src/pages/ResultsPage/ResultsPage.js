@@ -7,14 +7,14 @@ import './ResultsPage.scss';
 export default function ResultsPage() {
   const [results, setResults] = useState([]);
   // const [movies, setMovies] = useState([]);
+  const [page, setPage] = useState(1);
   const location = useLocation();
   const { rating, genre, time } = location.state;
   // const allMovies = [];
 
-  const token =
-    'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNGQ1NmE5YjU0ZDM1ZTZkYmU3M2ExNWY5MTBjYjk0ZSIsInN1YiI6IjY1Mzk2MWM1Njc4MjU5MDBhZGZmYTE2YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.3mHGEqvIAAwJ4jVubNUdB37rgq6XtFsDNoLPV-z152c';
-  const apiBody = 'https://api.themoviedb.org/3';
-  const apiKey = 'e4d56a9b54d35e6dbe73a15f910cb94e';
+  const token = process.env.REACT_APP_API_TOKEN;
+  const apiBody = process.env.REACT_APP_API_BODY;
+  const apiKey = process.env.REACT_APP_API_KEY;
   //with_genres=10751%2C${genre}
   //with_genres=${genre}&without_genres=10751
 
@@ -27,7 +27,7 @@ export default function ResultsPage() {
         //if its family friendly -- need to do additional check about pg-13
         if (rating === 'yes') {
           let res = await axios.get(
-            `${apiBody}/discover/movie?include_adult=false&include_video=false&language=en-US&sort_by=popularity.desc&with_genres=${genre}&without_genres=27`,
+            `${apiBody}/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genre}&without_genres=27`,
             {
               headers: {
                 Accept: 'application/json',
@@ -58,6 +58,10 @@ export default function ResultsPage() {
             }
           }
           console.log(array);
+          // if (results.length + array.length < 10) {
+          //   setPage(page + 1);
+          //   setResults((results) => [...results, ...array]);
+          // }
           setResults(array);
         } else {
           //not family friendly -- need to do additional check about pg-13
@@ -100,7 +104,7 @@ export default function ResultsPage() {
       }
     };
     getByGenre();
-  }, [genre, rating, time]);
+  }, [genre, rating, time, page]);
 
   if (results.length === 0) return <h1 className='loading'>Loading...</h1>;
 
