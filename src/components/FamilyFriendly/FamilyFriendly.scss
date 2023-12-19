@@ -20,6 +20,7 @@
     text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
     text-align: center;
     white-space: nowrap;
+    user-select: none;
 
     @include tablet {
       font-size: 2.5rem;
@@ -36,5 +37,6 @@
   &__button {
     @include custom-button();
     width: 6rem;
+    user-select: none;
   }
 }
