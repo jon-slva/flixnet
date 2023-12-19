@@ -2,10 +2,10 @@
 @use '../../styles/partials/mixins' as *;
 
 .mood {
+  user-select: none;
   position: absolute;
   left: 50%;
   top: 50%;
-  // transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,8 +30,13 @@
   }
 
   &__option {
+    cursor: pointer;
     text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
     font-size: 3rem;
+
+    &:active {
+      transform: translate(2px, 3px);
+    }
 
     @include tablet {
       font-size: 4rem;

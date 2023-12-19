@@ -7,11 +7,20 @@
   width: 30%;
   margin-bottom: 1.5rem;
 
+  @include desktop {
+    width: 14%;
+  }
+
   &__image {
+    aspect-ratio: 2 / 3;
     margin-bottom: .5rem;
     object-fit: cover;
     border-radius: 3px;
     box-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
+
+    @include desktop {
+      // height: 500px;
+    }
   }
 
   &__title {

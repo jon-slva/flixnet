@@ -17,11 +17,15 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 16px;
-  margin: 8px 0;
+  margin: 0.5rem 0;
   width: 100%;
 
   @include tablet {
     padding: 0.25rem 2rem;
+  }
+
+  @include desktop {
+    padding: 0.5rem 6.25rem;
   }
 
   &__logo {
@@ -32,7 +36,7 @@
     &--name {
       @include font-firasans-bold;
       // @include font-montserrat-bold;
-      font-size: 32px;
+      font-size: 2rem;
       text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
 
       @include tablet {
@@ -54,11 +58,11 @@
   &__start-over {
     @include font-firasans-bold;
     // @include font-montserrat-bold;
-    font-size: 18px;
+    font-size: 1.125rem;
     text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
 
     @include tablet {
-      font-size: 20px;
+      font-size: 1.25rem;
     }
   }
 }

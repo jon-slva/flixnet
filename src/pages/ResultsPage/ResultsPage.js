@@ -15,6 +15,7 @@ export default function ResultsPage() {
   const token = process.env.REACT_APP_API_TOKEN;
   const apiBody = process.env.REACT_APP_API_BODY;
   const apiKey = process.env.REACT_APP_API_KEY;
+  console.log(apiKey);
   //with_genres=10751%2C${genre}
   //with_genres=${genre}&without_genres=10751
 
