@@ -17,6 +17,10 @@
   margin: 8px 0;
   width: 100%;
 
+  @include tablet {
+    padding: 0.25rem 2rem;
+  }
+
   &__logo {
     display: flex;
     align-items: center;
@@ -27,12 +31,20 @@
       // @include font-montserrat-bold;
       font-size: 32px;
       text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
+
+      @include tablet {
+        font-size: 36px;
+      }
     }
 
     &--icon {
       transform: translateY(-2px);
       height: 3rem;
       filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.2));
+
+      @include tablet {
+        height: 3.5rem;
+      }
     }
   }
 
@@ -41,5 +53,9 @@
     // @include font-montserrat-bold;
     font-size: 18px;
     text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
+
+    @include tablet {
+      font-size: 20px;
+    }
   }
 }
