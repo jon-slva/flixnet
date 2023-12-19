@@ -11,12 +11,20 @@
   display: none;
   width: 70%;
 
+  @include tablet {
+    width: 60%;
+  }
+
   &__header {
     @include font-montserrat-bold;
     font-size: 2rem;
     margin-bottom: 2rem;
     text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
     text-align: center;
+
+    @include tablet {
+      font-size: 2.75rem;
+    }
   }
 
   &__container {
@@ -34,12 +42,20 @@
     margin: 5px 0;
     box-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
     @include font-montserrat-reg;
+
+    @include tablet {
+      font-size: 1.5rem;
+    }
   }
 
   &__hours-label,
   &__minutes-label {
     @include font-montserrat-bold;
     text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
+
+    @include tablet {
+      font-size: 1.5rem;
+    }
   }
 
   &__box {

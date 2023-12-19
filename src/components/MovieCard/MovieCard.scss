@@ -17,19 +17,30 @@
   &__title {
     text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
     font-size: 1rem;
+
+    @include tablet {
+      font-size: 1.25rem;
+    }
   }
 
   &__year {
     text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.6);
-
     @include font-montserrat-light;
     font-size: 0.875rem;
+
+    @include tablet {
+      font-size: 1rem;
+    }
   }
 
   &__score {
     text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
     @include font-montserrat-reg;
     font-size: 0.75rem;
+
+    @include tablet {
+      font-size: 0.875rem;
+    }
   }
 }
 

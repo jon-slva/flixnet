@@ -4,9 +4,12 @@
 .header {
   display: flex;
   justify-content: center;
-  // position: absolute;
   width: 100%;
   z-index: 3;
+
+  @include tablet {
+    // position: absolute;
+  }
 }
 
 .nav {
