@@ -4,6 +4,10 @@
 .results {
   margin-top: 1rem;
 
+  @include desktop {
+    margin-top: 1.5rem;
+  }
+
   &__header {
     @include font-montserrat-bold;
     font-size: 2rem;
@@ -14,6 +18,11 @@
     @include tablet {
       font-size: 2.75rem;
       margin-bottom: 1.5rem;
+    }
+
+    @include desktop {
+      font-size: 3rem;
+      margin-bottom: 2.5rem;
     }
   }
 
@@ -29,6 +38,11 @@
     @include tablet {
       padding: 0 2rem;
       gap: 1.5rem;
+    }
+
+    @include desktop {
+      padding: 0 140px;
+      gap: 2rem;
     }
   }
 }
