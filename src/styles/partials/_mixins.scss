@@ -1,7 +1,21 @@
 @import './variables';
 
-//Montserrat
+// Breakpoints
 
+@mixin tablet {
+  @media (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+
+//Montserrat
 @mixin font-montserrat-reg {
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: normal;
@@ -51,6 +65,10 @@
   border-color: #ff6663;
   cursor: pointer;
   box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.2);
+
+  @include tablet {
+    font-size: 1.5rem;
+  }
 
   &:hover {
     // background-color: $silver;
