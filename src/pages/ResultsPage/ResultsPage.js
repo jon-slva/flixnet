@@ -25,7 +25,7 @@ export default function ResultsPage() {
     const childrenRating = ['G', 'PG', 'PG-13'];
     const getByGenre = async () => {
       try {
-        //if its family friendly -- need to do additional check about pg-13
+        //if its family friendly
         if (rating === 'yes') {
           let res = await axios.get(
             `${apiBody}/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genre}&without_genres=27`,
@@ -59,15 +59,11 @@ export default function ResultsPage() {
             }
           }
           console.log(array);
-          // if (results.length + array.length < 10) {
-          //   setPage(page + 1);
-          //   setResults((results) => [...results, ...array]);
-          // }
           setResults(array);
         } else {
-          //not family friendly -- need to do additional check about pg-13
+          //not family friendly
           let res = await axios.get(
-            `${apiBody}/discover/movie?include_adult=false&include_video=false&language=en-US&sort_by=popularity.desc&with_genres=${genre}&without_genres=10751`,
+            `${apiBody}/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genre}&without_genres=10751`,
             {
               headers: {
                 Accept: 'application/json',
@@ -105,7 +101,13 @@ export default function ResultsPage() {
       }
     };
     getByGenre();
-  }, [genre, rating, time, page]);
+  }, [genre, rating, time, page, apiBody, apiKey, token]);
+
+  const handleClick = () => {
+    console.log('load more');
+    setResults([]);
+    setPage(page + 1);
+  };
 
   if (results.length === 0) return <h1 className='loading'>Loading...</h1>;
 
@@ -117,6 +119,9 @@ export default function ResultsPage() {
           return <MovieCard key={i} movie={movie} />;
         })}
       </div>
+      <button type='click' className='results__button' onClick={handleClick}>
+        Load More
+      </button>
     </div>
   );
 }
