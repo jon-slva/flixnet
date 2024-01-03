@@ -23,9 +23,46 @@ export default function ResultsPage() {
 
   useEffect(() => {
     const childrenRating = ['G', 'PG', 'PG-13'];
+
+    const getByRating = async (fullResponse) => {
+      const array = [];
+      for (let i = 0; i < fullResponse.length; i++) {
+        let newRes = await axios.get(
+          `${apiBody}/movie/${fullResponse[i].id}?api_key=${apiKey}&append_to_response=release_dates`,
+          {
+            headers: {
+              Accept: 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        let dates = newRes.data.release_dates.results.find((date) => {
+          return date.iso_3166_1 === 'US';
+        });
+        if (rating === 'yes') {
+          if (
+            newRes.data.runtime <= time &&
+            dates &&
+            childrenRating.includes(dates.release_dates[0].certification)
+          ) {
+            array.push(newRes.data);
+          }
+        } else {
+          if (
+            newRes.data.runtime <= time &&
+            dates &&
+            !childrenRating.includes(dates.release_dates[0].certification)
+          ) {
+            array.push(newRes.data);
+          }
+        }
+      }
+      setResults(array);
+    };
+
     const getByGenre = async () => {
       try {
-        //if its family friendly
+        let fullResponse = null;
         if (rating === 'yes') {
           let res = await axios.get(
             `${apiBody}/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genre}&without_genres=27`,
@@ -36,32 +73,8 @@ export default function ResultsPage() {
               },
             }
           );
-          const array = [];
-          for (let i = 0; i < res.data.results.length; i++) {
-            let newRes = await axios.get(
-              `${apiBody}/movie/${res.data.results[i].id}?api_key=${apiKey}&append_to_response=release_dates`,
-              {
-                headers: {
-                  Accept: 'application/json',
-                  Authorization: `Bearer ${token}`,
-                },
-              }
-            );
-            let dates = newRes.data.release_dates.results.find((date) => {
-              return date.iso_3166_1 === 'US';
-            });
-            if (
-              newRes.data.runtime <= time &&
-              dates &&
-              childrenRating.includes(dates.release_dates[0].certification)
-            ) {
-              array.push(newRes.data);
-            }
-          }
-          console.log(array);
-          setResults(array);
+          fullResponse = res.data.results;
         } else {
-          //not family friendly
           let res = await axios.get(
             `${apiBody}/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genre}&without_genres=10751`,
             {
@@ -71,31 +84,9 @@ export default function ResultsPage() {
               },
             }
           );
-          const array = [];
-          for (let i = 0; i < res.data.results.length; i++) {
-            let newRes = await axios.get(
-              `${apiBody}/movie/${res.data.results[i].id}?api_key=${apiKey}&append_to_response=release_dates`,
-              {
-                headers: {
-                  Accept: 'application/json',
-                  Authorization: `Bearer ${token}`,
-                },
-              }
-            );
-            let dates = newRes.data.release_dates.results.find((date) => {
-              return date.iso_3166_1 === 'US';
-            });
-            if (
-              newRes.data.runtime <= time &&
-              dates &&
-              !childrenRating.includes(dates.release_dates[0].certification)
-            ) {
-              array.push(newRes.data);
-            }
-          }
-          console.log(array);
-          setResults(array);
+          fullResponse = res.data.results;
         }
+        getByRating(fullResponse);
       } catch (error) {
         console.log(error);
       }
