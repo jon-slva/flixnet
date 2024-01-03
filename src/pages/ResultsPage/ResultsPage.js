@@ -51,12 +51,19 @@ export default function ResultsPage() {
           }
         }
       }
-      // setResults(array);
       if (array.length < 12) {
-        setResults((results) => [...results, ...array]);
+        console.log(extras);
+        setResults((results) => [...extras, ...results, ...array]);
         setPage(page + 1);
       }
-      setResults(array);
+      if (array.length >= 12) {
+        let moviesLeft = 12 - extras.length;
+        let slicedArray = array.slice(0, moviesLeft);
+        console.log('extras ', extras);
+        console.log('sliced ', slicedArray);
+        setResults([...extras, ...slicedArray]);
+        setExtras(array.slice(moviesLeft));
+      }
     };
 
     const getByGenre = async () => {
