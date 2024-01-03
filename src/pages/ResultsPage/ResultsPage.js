@@ -6,20 +6,14 @@ import './ResultsPage.scss';
 
 export default function ResultsPage() {
   const [results, setResults] = useState([]);
-  // const [movies, setMovies] = useState([]);
+  const [extras, setExtras] = useState([]);
   const [page, setPage] = useState(1);
   const location = useLocation();
   const { rating, genre, time } = location.state;
-  // const allMovies = [];
 
   const token = process.env.REACT_APP_API_TOKEN;
   const apiBody = process.env.REACT_APP_API_BODY;
   const apiKey = process.env.REACT_APP_API_KEY;
-  console.log(apiKey);
-  //with_genres=10751%2C${genre}
-  //with_genres=${genre}&without_genres=10751
-
-  // /movie/${id}?api_key=${apiKey}&language=en-US
 
   useEffect(() => {
     const childrenRating = ['G', 'PG', 'PG-13'];
@@ -56,6 +50,11 @@ export default function ResultsPage() {
             array.push(newRes.data);
           }
         }
+      }
+      // setResults(array);
+      if (array.length < 12) {
+        setResults((results) => [...results, ...array]);
+        setPage(page + 1);
       }
       setResults(array);
     };
@@ -111,7 +110,7 @@ export default function ResultsPage() {
         })}
       </div>
       <button type='click' className='results__button' onClick={handleClick}>
-        Load More
+        show me new movies
       </button>
     </div>
   );
