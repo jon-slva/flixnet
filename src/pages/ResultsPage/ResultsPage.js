@@ -8,6 +8,7 @@ export default function ResultsPage() {
   const [results, setResults] = useState([]);
   const [extras, setExtras] = useState([]);
   const [page, setPage] = useState(1);
+  const [message, setMessage] = useState();
   const location = useLocation();
   const { rating, genre, time } = location.state;
 
@@ -51,8 +52,11 @@ export default function ResultsPage() {
           }
         }
       }
+      if (array.length === 0) {
+        return setMessage('No movies fit these specifications!');
+      }
       if (array.length < 12) {
-        console.log(extras);
+        // console.log(extras);
         setResults((results) => [...extras, ...results, ...array]);
         setPage(page + 1);
       }
@@ -97,6 +101,7 @@ export default function ResultsPage() {
         console.log(error);
       }
     };
+    setMessage('Loading...');
     getByGenre();
   }, [genre, rating, time, page, apiBody, apiKey, token]);
 
@@ -106,11 +111,14 @@ export default function ResultsPage() {
     setPage(page + 1);
   };
 
-  if (results.length === 0) return <h1 className='loading'>Loading...</h1>;
+  // if (results.length === 0) return <h1 className='loading'>Loading...</h1>;
 
   return (
     <div className='results'>
       <h1 className='results__header'>Pick a Movie!</h1>
+      {message && results.length === 0 && (
+        <h2 className='results__message'>{message}</h2>
+      )}
       <div className='results__container'>
         {results.map((movie, i) => {
           return <MovieCard key={i} movie={movie} />;

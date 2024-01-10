@@ -52,9 +52,15 @@
     margin: 0 auto;
     margin-bottom: 1rem;
   }
+  &__message {
+    @include fade-in;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
 }
 
-.loading {
-  padding-left: 1rem;
-  @include fade-in;
-}
+// .loading {
+//   padding-left: 1rem;
+//   @include fade-in;
+// }
