@@ -4,9 +4,10 @@ import './MovieCard.scss';
 export default function MovieCard({ movie }) {
   const [isLoaded, setIsLoaded] = useState(false);
 
+  // console.log(movie.homepage);
   const movieRatingReformatter = () => {
     return movie.vote_average.toFixed(2);
-  }
+  };
 
   return (
     <div className={`movie-card ${isLoaded ? 'loaded' : 'loading'}`}>
