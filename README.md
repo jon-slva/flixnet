@@ -28,7 +28,7 @@ React.js, Node.js, Express.js, Sass, Axios
 - [@mieko61](https://github.com/mieko61)
 ## Live Web Demo
 
-https://flixnet.johnny5ive.com/
+https://flixnet.jonathansilva.io/
 
 ## Run Locally
 
