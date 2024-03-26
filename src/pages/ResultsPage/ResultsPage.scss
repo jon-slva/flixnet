@@ -1,0 +1,66 @@
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/mixins' as *;
+
+.results {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  @include desktop {
+    margin-top: 1.5rem;
+  }
+
+  &__header {
+    @include font-montserrat-bold;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
+    text-align: center;
+
+    @include tablet {
+      font-size: 2.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @include desktop {
+      font-size: 3rem;
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    // margin-top: 3rem;
+    gap: auto;
+
+    @include tablet {
+      padding: 0 2rem;
+      gap: 1.5rem;
+    }
+
+    @include desktop {
+      padding: 0 140px;
+      gap: 2rem;
+    }
+  }
+  &__button {
+    @include custom-button;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+  }
+  &__message {
+    @include fade-in;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+}
+
+// .loading {
+//   padding-left: 1rem;
+//   @include fade-in;
+// }

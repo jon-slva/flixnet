@@ -1,0 +1,68 @@
+@import '../../styles/partials/globals';
+@import '../../styles/partials/mixins';
+
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  z-index: 3;
+
+  @include tablet {
+    // position: absolute;
+  }
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  margin: 0.5rem 0;
+  width: 100%;
+
+  @include tablet {
+    padding: 0.25rem 2rem;
+  }
+
+  @include desktop {
+    padding: 0.5rem 6.25rem;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &--name {
+      @include font-firasans-bold;
+      // @include font-montserrat-bold;
+      font-size: 2rem;
+      text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
+
+      @include tablet {
+        font-size: 36px;
+      }
+    }
+
+    &--icon {
+      transform: translateY(-2px);
+      height: 3rem;
+      filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.2));
+
+      @include tablet {
+        height: 3.5rem;
+      }
+    }
+  }
+
+  &__start-over {
+    @include font-firasans-bold;
+    // @include font-montserrat-bold;
+    font-size: 1.125rem;
+    text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
+
+    @include tablet {
+      font-size: 1.25rem;
+    }
+  }
+}

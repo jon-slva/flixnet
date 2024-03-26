@@ -1,0 +1,77 @@
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/mixins' as *;
+
+.time {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  width: 70%;
+
+  @include tablet {
+    width: 60%;
+  }
+
+  &__header {
+    @include font-montserrat-bold;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    user-select: none;
+
+    @include tablet {
+      font-size: 2.75rem;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding-bottom: 1rem;
+  }
+
+  &__hours-input,
+  &__minutes-input {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px 0;
+    box-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
+    @include font-montserrat-reg;
+
+    @include tablet {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__hours-label,
+  &__minutes-label {
+    @include font-montserrat-bold;
+    text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
+    user-select: none;
+
+    @include tablet {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding-bottom: 2rem;
+  }
+}
+
+.show-component {
+  @include fade-in-abs;
+}
+
+.hide-component {
+  @include fade-out-abs;
+}
