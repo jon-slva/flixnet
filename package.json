@@ -2,7 +2,7 @@
 	"name": "flixnet",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://jon-slva.github.io/flixnet",
+	"homepage": "https://flixnet.jonathansilva.io",
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.17.0",
 		"@testing-library/react": "^13.4.0",
