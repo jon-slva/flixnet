@@ -6,18 +6,20 @@ import Header from './components/Header/Header';
 import './App.scss';
 
 function App() {
-  return (
-    <>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/form' element={<FormPage />} />
-          <Route path='/results' element={<ResultsPage />} />
-        </Routes>
-      </BrowserRouter>
-    </>
-  );
+	return (
+		<>
+			<BrowserRouter
+				basename='/flixnet'
+			>
+				<Header />
+				<Routes>
+					<Route path='/' element={<HomePage />} />
+					<Route path='/form' element={<FormPage />} />
+					<Route path='/results' element={<ResultsPage />} />
+				</Routes>
+			</BrowserRouter>
+		</>
+	);
 }
 
 export default App;
